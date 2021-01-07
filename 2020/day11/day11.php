@@ -27,7 +27,7 @@ $testCase = array(
 
 );
 
-$patOneSolution = solvePartOne($testCase);
+// $patOneSolution = solvePartOne($testCase);
 
 /**
  * Prepares data for use in algorithm
@@ -171,16 +171,17 @@ function getFirstSeatInSight($direction, $currentRow, $currentColumn, $currentAr
 }
 
 function checkDirection($currentRow, $currentColumn, $currentArrangement, $columnOffset, $rowOffset) {
-    $checkedRow = $currentRow;
-    $checkedCol = $currentColumn;
-    while ($currentArrangement[$checkedRow][$checkedCol] == ".") {
-        $checkedRow += $rowOffset;
-        $checkedCol += $columnOffset;
-        if (!$currentArrangement[$checkedRow][$checkedCol]) {
-            return false;
-        }
-    }
-    return $currentArrangement[$checkedRow][$checkedCol];
+    $checkedRow = $currentRow + $rowOffset;
+    $checkedCol = $currentColumn + $columnOffset;
 
+    if ($currentArrangement[$currentRow][$checkedCol] == "." && $currentArrangement[$currentRow][$checkedCol]) {
+        checkDirection($checkedRow, $checkedCol, $currentArrangement, $columnOffset, $rowOffset);
+    } else {
+        print_r($currentArrangement[$checkedRow][$checkedCol]);
+        return $currentArrangement[$checkedRow][$checkedCol];
+    }
 }
 
+// findFirstSeatsInSight(0, 0, $testCase);
+
+checkDirection(0, 0, $testCase, 0, 1);
