@@ -1,4 +1,11 @@
 #!/bin/bash
+if [ "$#" -lt 1 ]; then
+    echo "-----------------------"
+    echo "Please pass parameters:"
+    echo "Example: cod.sh -y 2022 -d 1 -l python"
+    exit 1;
+fi
+
 
 while getopts y:d:l: flag
 do
@@ -88,15 +95,15 @@ then
     then
         echo "Day $day already exists"
     else
-        mkdir "$DAY_ROOT"
+        mkdir -p "$DAY_ROOT"
         touch "$DAY_ROOT/input.txt"
         touch "$DAY_ROOT/testCase.txt"
         create_file
         echo "Created $year Day $day"
     fi
 else
-    mkdir "$YEAR_ROOT"
-    mkdir "$DAY_ROOT"
+    mkdir -p "$YEAR_ROOT"
+    mkdir -p "$DAY_ROOT"
     touch "$DAY_ROOT/input.txt"
     touch "$DAY_ROOT/testCase.txt"
     create_file
