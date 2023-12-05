@@ -1,5 +1,5 @@
-# f = open('input.txt', 'r');
-# input = f.read().splitlines();
+f = open('input.txt', 'r');
+input = f.read().splitlines();
 tf = open('testCase.txt', 'r');
 test = tf.read().split('\n\n');
 
