@@ -33,18 +33,18 @@ def find_first_digit(command):
 
 
 def main(input):
-    callibration_values = []
-    callibration_sum = 0
+    calibration_values = []
+    calibration_sum = 0
 
     for command in input:
         first_digit = find_first_digit(list(command))
         last_digit = find_first_digit(list(reversed(command)))
-        callibration_values.append(f"{first_digit}{last_digit}")
+        calibration_values.append(f"{first_digit}{last_digit}")
     
-    for value in callibration_values:
-        callibration_sum += int(value)
+    for value in calibration_values:
+        calibration_sum += int(value)
     
-    print(f"Callibration sum is: {callibration_sum}")
-    return callibration_sum
+    print(f"calibration sum is: {calibration_sum}")
+    return calibration_sum
 
 main(input)
