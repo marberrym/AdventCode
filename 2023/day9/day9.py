@@ -27,8 +27,6 @@ def find_next_schema(schematic):
         next_value = line[-1] + value_to_be_added
         line.append(next_value)
         value_to_be_added = next_value
-        print(line)
-
     return reversed_schema
 
 def find_prev_schema(schematic):
@@ -39,7 +37,6 @@ def find_prev_schema(schematic):
         prev_value = line[0] - value_to_be_subtracted
         line.insert(0, prev_value)
         value_to_be_subtracted = prev_value
-        print(line)
     return reversed_schema
 
 
